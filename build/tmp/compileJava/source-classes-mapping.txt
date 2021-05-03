@@ -22,12 +22,24 @@ proto/main/java/com/proto/sum/PrimeDecompRequest.java
  com.proto.sum.PrimeDecompRequest
  com.proto.sum.PrimeDecompRequest$1
  com.proto.sum.PrimeDecompRequest$Builder
+proto/main/java/com/proto/greet/LongGreetRequestOrBuilder.java
+ com.proto.greet.LongGreetRequestOrBuilder
 proto/main/java/com/proto/greet/Greet.java
  com.proto.greet.Greet
+proto/main/java/com/proto/greet/LongGreetRequest.java
+ com.proto.greet.LongGreetRequest
+ com.proto.greet.LongGreetRequest$1
+ com.proto.greet.LongGreetRequest$Builder
+proto/main/java/com/proto/greet/LongGreetResponse.java
+ com.proto.greet.LongGreetResponse
+ com.proto.greet.LongGreetResponse$1
+ com.proto.greet.LongGreetResponse$Builder
 proto/main/java/com/proto/sum/SumResponseOrBuilder.java
  com.proto.sum.SumResponseOrBuilder
 proto/main/java/com/proto/greet/GreetManyTimesResponseOrBuilder.java
  com.proto.greet.GreetManyTimesResponseOrBuilder
+proto/main/java/com/proto/greet/LongGreetResponseOrBuilder.java
+ com.proto.greet.LongGreetResponseOrBuilder
 proto/main/java/com/proto/sum/PrimeDecompRequestOrBuilder.java
  com.proto.sum.PrimeDecompRequestOrBuilder
 proto/main/java/com/proto/dummy/DummyMessage.java
@@ -40,6 +52,7 @@ proto/main/java/com/proto/sum/Sum.java
  com.proto.sum.Sum
 com/github/srinav/grpc/greeting/server/GreetServiceImpl.java
  com.github.srinav.grpc.greeting.server.GreetServiceImpl
+ com.github.srinav.grpc.greeting.server.GreetServiceImpl$1
 proto/main/grpc/com/proto/sum/SumServiceGrpc.java
  com.proto.sum.SumServiceGrpc
  com.proto.sum.SumServiceGrpc$1
@@ -78,6 +91,7 @@ proto/main/java/com/proto/greet/GreetManyTimesRequest.java
  com.proto.greet.GreetManyTimesRequest$Builder
 com/github/srinav/grpc/greeting/client/GreetingClient.java
  com.github.srinav.grpc.greeting.client.GreetingClient
+ com.github.srinav.grpc.greeting.client.GreetingClient$1
 proto/main/grpc/com/proto/greet/GreetServiceGrpc.java
  com.proto.greet.GreetServiceGrpc
  com.proto.greet.GreetServiceGrpc$1
