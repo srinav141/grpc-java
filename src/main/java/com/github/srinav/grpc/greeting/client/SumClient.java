@@ -1,9 +1,6 @@
 package com.github.srinav.grpc.greeting.client;
 
-import com.proto.sum.Add;
-import com.proto.sum.SumRequest;
-import com.proto.sum.SumResponse;
-import com.proto.sum.SumServiceGrpc;
+import com.proto.sum.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
@@ -21,7 +18,17 @@ public class SumClient {
         SumRequest sumRequest = SumRequest.newBuilder().setAdd(add).build();
 
         SumResponse sumResponse = sumClient.sum(sumRequest);
-
         System.out.println(sumResponse.getResult());
+
+    //Stream
+        int num = 567890;
+
+
+        sumClient.primeDecomp(PrimeDecompRequest.newBuilder().setNum(num).build()).forEachRemaining(primeDecompResponse -> {
+
+            System.out.println(primeDecompResponse.getPrimeFactor());
+        });
+
+
     }
 }

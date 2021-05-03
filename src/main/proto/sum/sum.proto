@@ -17,7 +17,17 @@ message SumResponse{
   int32 result = 1;
 }
 
+message PrimeDecompRequest{
+  int32 num =1;
+}
+
+message PrimeDecompResponse{
+int32 prime_factor = 1;
+}
+
 service SumService{
   //Unary
   rpc Sum(SumRequest) returns (SumResponse) {};
+  //Stream
+  rpc PrimeDecomp(PrimeDecompRequest) returns (stream PrimeDecompResponse) {};
 }

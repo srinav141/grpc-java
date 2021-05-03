@@ -1,10 +1,7 @@
 package com.github.srinav.grpc.greeting.client;
 
 import com.proto.dummy.DummyServiceGrpc;
-import com.proto.greet.GreetRequest;
-import com.proto.greet.GreetResponse;
-import com.proto.greet.GreetServiceGrpc;
-import com.proto.greet.Greeting;
+import com.proto.greet.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
@@ -22,6 +19,7 @@ public class GreetingClient {
         //Created Greet Service client (blocking synchronous)
         GreetServiceGrpc.GreetServiceBlockingStub greetClient = GreetServiceGrpc.newBlockingStub(channel);
 
+    //Unary
         //created protocol buffer greeting message
         Greeting greeting = Greeting.newBuilder().setFirstName("Tester").setLastName("Exp").build();
 
@@ -32,6 +30,16 @@ public class GreetingClient {
         GreetResponse greetResponse = greetClient.greet(greetRequest);
 
         System.out.println(greetResponse.getResult());
+
+    // Server Streaming
+        GreetManyTimesRequest greetManyTimesRequest = GreetManyTimesRequest.newBuilder().
+                setGreeting(Greeting.newBuilder().setFirstName("Stream-Tester")).
+                build();
+        //Stream the responses in the blocking manner
+        greetClient.greetManyTimes(greetManyTimesRequest).forEachRemaining(greetManyTimesResponse -> {
+            System.out.println(greetManyTimesResponse.getResult());
+        });
+
 
 
         //For Asynchronous Client

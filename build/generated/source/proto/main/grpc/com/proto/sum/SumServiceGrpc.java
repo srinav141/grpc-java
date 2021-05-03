@@ -45,6 +45,37 @@ public final class SumServiceGrpc {
     return getSumMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.proto.sum.PrimeDecompRequest,
+      com.proto.sum.PrimeDecompResponse> getPrimeDecompMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "PrimeDecomp",
+      requestType = com.proto.sum.PrimeDecompRequest.class,
+      responseType = com.proto.sum.PrimeDecompResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.proto.sum.PrimeDecompRequest,
+      com.proto.sum.PrimeDecompResponse> getPrimeDecompMethod() {
+    io.grpc.MethodDescriptor<com.proto.sum.PrimeDecompRequest, com.proto.sum.PrimeDecompResponse> getPrimeDecompMethod;
+    if ((getPrimeDecompMethod = SumServiceGrpc.getPrimeDecompMethod) == null) {
+      synchronized (SumServiceGrpc.class) {
+        if ((getPrimeDecompMethod = SumServiceGrpc.getPrimeDecompMethod) == null) {
+          SumServiceGrpc.getPrimeDecompMethod = getPrimeDecompMethod =
+              io.grpc.MethodDescriptor.<com.proto.sum.PrimeDecompRequest, com.proto.sum.PrimeDecompResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "PrimeDecomp"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.proto.sum.PrimeDecompRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.proto.sum.PrimeDecompResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new SumServiceMethodDescriptorSupplier("PrimeDecomp"))
+              .build();
+        }
+      }
+    }
+    return getPrimeDecompMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -103,6 +134,16 @@ public final class SumServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSumMethod(), responseObserver);
     }
 
+    /**
+     * <pre>
+     *Stream
+     * </pre>
+     */
+    public void primeDecomp(com.proto.sum.PrimeDecompRequest request,
+        io.grpc.stub.StreamObserver<com.proto.sum.PrimeDecompResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getPrimeDecompMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -112,6 +153,13 @@ public final class SumServiceGrpc {
                 com.proto.sum.SumRequest,
                 com.proto.sum.SumResponse>(
                   this, METHODID_SUM)))
+          .addMethod(
+            getPrimeDecompMethod(),
+            io.grpc.stub.ServerCalls.asyncServerStreamingCall(
+              new MethodHandlers<
+                com.proto.sum.PrimeDecompRequest,
+                com.proto.sum.PrimeDecompResponse>(
+                  this, METHODID_PRIME_DECOMP)))
           .build();
     }
   }
@@ -140,6 +188,17 @@ public final class SumServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getSumMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     *Stream
+     * </pre>
+     */
+    public void primeDecomp(com.proto.sum.PrimeDecompRequest request,
+        io.grpc.stub.StreamObserver<com.proto.sum.PrimeDecompResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
+          getChannel().newCall(getPrimeDecompMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -164,6 +223,17 @@ public final class SumServiceGrpc {
     public com.proto.sum.SumResponse sum(com.proto.sum.SumRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getSumMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     *Stream
+     * </pre>
+     */
+    public java.util.Iterator<com.proto.sum.PrimeDecompResponse> primeDecomp(
+        com.proto.sum.PrimeDecompRequest request) {
+      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
+          getChannel(), getPrimeDecompMethod(), getCallOptions(), request);
     }
   }
 
@@ -194,6 +264,7 @@ public final class SumServiceGrpc {
   }
 
   private static final int METHODID_SUM = 0;
+  private static final int METHODID_PRIME_DECOMP = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -215,6 +286,10 @@ public final class SumServiceGrpc {
         case METHODID_SUM:
           serviceImpl.sum((com.proto.sum.SumRequest) request,
               (io.grpc.stub.StreamObserver<com.proto.sum.SumResponse>) responseObserver);
+          break;
+        case METHODID_PRIME_DECOMP:
+          serviceImpl.primeDecomp((com.proto.sum.PrimeDecompRequest) request,
+              (io.grpc.stub.StreamObserver<com.proto.sum.PrimeDecompResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -278,6 +353,7 @@ public final class SumServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new SumServiceFileDescriptorSupplier())
               .addMethod(getSumMethod())
+              .addMethod(getPrimeDecompMethod())
               .build();
         }
       }

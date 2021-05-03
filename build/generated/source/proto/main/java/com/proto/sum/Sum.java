@@ -29,6 +29,16 @@ public final class Sum {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sum_SumResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sum_PrimeDecompRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sum_PrimeDecompRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sum_PrimeDecompResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sum_PrimeDecompResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -41,9 +51,13 @@ public final class Sum {
       "\n\rsum/sum.proto\022\003sum\",\n\003Add\022\021\n\tfirst_num" +
       "\030\001 \001(\005\022\022\n\nsecond_num\030\002 \001(\005\"#\n\nSumRequest" +
       "\022\025\n\003add\030\001 \001(\0132\010.sum.Add\"\035\n\013SumResponse\022\016" +
-      "\n\006result\030\001 \001(\00528\n\nSumService\022*\n\003Sum\022\017.su" +
-      "m.SumRequest\032\020.sum.SumResponse\"\000B\021\n\rcom." +
-      "proto.sumP\001b\006proto3"
+      "\n\006result\030\001 \001(\005\"!\n\022PrimeDecompRequest\022\013\n\003" +
+      "num\030\001 \001(\005\"+\n\023PrimeDecompResponse\022\024\n\014prim" +
+      "e_factor\030\001 \001(\0052~\n\nSumService\022*\n\003Sum\022\017.su" +
+      "m.SumRequest\032\020.sum.SumResponse\"\000\022D\n\013Prim" +
+      "eDecomp\022\027.sum.PrimeDecompRequest\032\030.sum.P" +
+      "rimeDecompResponse\"\0000\001B\021\n\rcom.proto.sumP" +
+      "\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -67,6 +81,18 @@ public final class Sum {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sum_SumResponse_descriptor,
         new java.lang.String[] { "Result", });
+    internal_static_sum_PrimeDecompRequest_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_sum_PrimeDecompRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sum_PrimeDecompRequest_descriptor,
+        new java.lang.String[] { "Num", });
+    internal_static_sum_PrimeDecompResponse_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_sum_PrimeDecompResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sum_PrimeDecompResponse_descriptor,
+        new java.lang.String[] { "PrimeFactor", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

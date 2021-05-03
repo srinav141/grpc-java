@@ -1,9 +1,6 @@
 package com.github.srinav.grpc.greeting.server;
 
-import com.proto.sum.Add;
-import com.proto.sum.SumRequest;
-import com.proto.sum.SumResponse;
-import com.proto.sum.SumServiceGrpc;
+import com.proto.sum.*;
 import io.grpc.stub.StreamObserver;
 
 public class SumServiceImpl extends SumServiceGrpc.SumServiceImplBase {
@@ -24,5 +21,26 @@ public class SumServiceImpl extends SumServiceGrpc.SumServiceImplBase {
 
         responseObserver.onCompleted();
         //super.sum(request, responseObserver);
+    }
+
+
+    @Override
+    public void primeDecomp(PrimeDecompRequest request, StreamObserver<PrimeDecompResponse> responseObserver) {
+
+        int number = request.getNum();
+        int div = 2;
+
+        while(number > 1){
+            if(number  % div == 0){
+                number = number/div;
+                responseObserver.onNext(PrimeDecompResponse.newBuilder().
+                        setPrimeFactor(div).build());
+
+            }else{
+                div  +=1;
+            }
+
+        }
+        responseObserver.onCompleted();
     }
 }
