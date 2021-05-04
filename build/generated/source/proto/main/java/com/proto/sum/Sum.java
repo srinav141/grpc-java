@@ -39,6 +39,16 @@ public final class Sum {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sum_PrimeDecompResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sum_SquareRootRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sum_SquareRootRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sum_SquareRootResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sum_SquareRootResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -53,11 +63,14 @@ public final class Sum {
       "\022\025\n\003add\030\001 \001(\0132\010.sum.Add\"\035\n\013SumResponse\022\016" +
       "\n\006result\030\001 \001(\005\"!\n\022PrimeDecompRequest\022\013\n\003" +
       "num\030\001 \001(\005\"+\n\023PrimeDecompResponse\022\024\n\014prim" +
-      "e_factor\030\001 \001(\0052~\n\nSumService\022*\n\003Sum\022\017.su" +
-      "m.SumRequest\032\020.sum.SumResponse\"\000\022D\n\013Prim" +
-      "eDecomp\022\027.sum.PrimeDecompRequest\032\030.sum.P" +
-      "rimeDecompResponse\"\0000\001B\021\n\rcom.proto.sumP" +
-      "\001b\006proto3"
+      "e_factor\030\001 \001(\005\" \n\021SquareRootRequest\022\013\n\003n" +
+      "um\030\001 \001(\005\"&\n\022SquareRootResponse\022\020\n\010num_sq" +
+      "rt\030\001 \001(\0012\277\001\n\nSumService\022*\n\003Sum\022\017.sum.Sum" +
+      "Request\032\020.sum.SumResponse\"\000\022D\n\013PrimeDeco" +
+      "mp\022\027.sum.PrimeDecompRequest\032\030.sum.PrimeD" +
+      "ecompResponse\"\0000\001\022?\n\nSquareRoot\022\026.sum.Sq" +
+      "uareRootRequest\032\027.sum.SquareRootResponse" +
+      "\"\000B\021\n\rcom.proto.sumP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -93,6 +106,18 @@ public final class Sum {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sum_PrimeDecompResponse_descriptor,
         new java.lang.String[] { "PrimeFactor", });
+    internal_static_sum_SquareRootRequest_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_sum_SquareRootRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sum_SquareRootRequest_descriptor,
+        new java.lang.String[] { "Num", });
+    internal_static_sum_SquareRootResponse_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_sum_SquareRootResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sum_SquareRootResponse_descriptor,
+        new java.lang.String[] { "NumSqrt", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

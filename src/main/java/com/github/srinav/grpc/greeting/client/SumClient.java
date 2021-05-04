@@ -29,6 +29,15 @@ public class SumClient {
             System.out.println(primeDecompResponse.getPrimeFactor());
         });
 
+        //Error handling
+
+        try {
+            sumClient.squareRoot(SquareRootRequest.newBuilder().setNum(-1).build());
+        }catch (RuntimeException e){
+            System.out.println("Got Exception for square root");
+            e.printStackTrace();
+        }
+
 
     }
 }

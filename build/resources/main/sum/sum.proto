@@ -25,9 +25,24 @@ message PrimeDecompResponse{
 int32 prime_factor = 1;
 }
 
+message SquareRootRequest{
+ int32 num = 1;
+}
+
+
+message SquareRootResponse{
+
+  double num_sqrt = 1;
+
+}
+
+
 service SumService{
   //Unary
   rpc Sum(SumRequest) returns (SumResponse) {};
   //Stream
   rpc PrimeDecomp(PrimeDecompRequest) returns (stream PrimeDecompResponse) {};
+
+  //error handling
+  rpc SquareRoot(SquareRootRequest) returns (SquareRootResponse){}
 }

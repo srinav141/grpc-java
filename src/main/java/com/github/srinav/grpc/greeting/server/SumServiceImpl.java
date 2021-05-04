@@ -1,6 +1,7 @@
 package com.github.srinav.grpc.greeting.server;
 
 import com.proto.sum.*;
+import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 
 public class SumServiceImpl extends SumServiceGrpc.SumServiceImplBase {
@@ -42,5 +43,24 @@ public class SumServiceImpl extends SumServiceGrpc.SumServiceImplBase {
 
         }
         responseObserver.onCompleted();
+    }
+
+    @Override
+    public void squareRoot(SquareRootRequest request, StreamObserver<SquareRootResponse> responseObserver) {
+        Integer num = request.getNum();
+
+        if (num >= 0){
+            double num_sqrt = Math.sqrt(num);
+            responseObserver.onNext(SquareRootResponse.newBuilder().setNumSqrt(num_sqrt).build());
+
+            responseObserver.onCompleted();
+
+        }else{
+
+            responseObserver.onError(Status.INVALID_ARGUMENT.
+                    withDescription("Given num is not positive").
+                    augmentDescription("Number sent: "+num).
+                    asRuntimeException());
+        }
     }
 }
